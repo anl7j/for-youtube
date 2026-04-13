@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grafik Tasarım Eğitimi | دورة تصميم الجرافيك</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-navy: #001f3f;
+            --apple-bg: #F5F5F7;
+        }
+        body {
+            font-family: 'Inter', 'Noto Sans Arabic', -apple-system, sans-serif;
+            background-color: var(--apple-bg);
+            color: #1D1D1F;
+            scroll-behavior: smooth;
+            transition: background-color 0.3s ease;
+        }
+        .apple-glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .form-input {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .form-input:focus {
+            box-shadow: 0 0 0 4px rgba(0, 31, 63, 0.1);
+            border-color: var(--primary-navy);
+        }
+        .loader {
+            border-top-color: var(--primary-navy);
+            animation: spinner 0.6s linear infinite;
+        }
+        @keyframes spinner {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* RTL Adjustments */
+        [dir="rtl"] .ml-auto { margin-left: 0; margin-right: auto; }
+        [dir="rtl"] .mr-auto { margin-right: 0; margin-left: auto; }
+        [dir="rtl"] .space-x-4 > :not([hidden]) ~ :not([hidden]) { --tw-space-x-reverse: 1; }
+        [dir="rtl"] .space-x-3 > :not([hidden]) ~ :not([hidden]) { --tw-space-x-reverse: 1; }
+        [dir="rtl"] .text-left { text-align: right; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 apple-glass border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-4 rtl:space-x-reverse">
+                <img src="https://k.top4top.io/p_3755ec3qr1.png" alt="Logo" class="h-10 w-auto object-contain" onerror="this.src='https://via.placeholder.com/40'">
+                <span class="font-semibold text-xl tracking-tight hidden sm:block" style="color: var(--primary-navy);" data-i18n="nav-brand">Grafik Tasarım</span>
+            </div>
+            <nav class="flex items-center space-x-4 rtl:space-x-reverse">
+                <!-- Language Switcher -->
+                <div class="flex bg-gray-100 p-1 rounded-full border border-gray-200">
+                    <button onclick="setLanguage('tr')" id="lang-tr" class="px-4 py-1.5 rounded-full text-xs font-bold transition-all bg-white shadow-sm text-navy">TR</button>
+                    <button onclick="setLanguage('ar')" id="lang-ar" class="px-4 py-1.5 rounded-full text-xs font-bold transition-all text-gray-500">العربية</button>
+                </div>
+                <a href="#form-section" class="bg-black text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-opacity-80 transition-all shadow-lg shadow-blue-900/10" style="background-color: var(--primary-navy);" data-i18n="nav-cta">
+                    Kaydol
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-20">
+        <!-- Hero Section -->
+        <section class="max-w-4xl mx-auto px-6 text-center mb-16">
+            <h1 class="text-5xl md:text-6xl font-bold tracking-tight mb-6" style="color: var(--primary-navy);" data-i18n="hero-title">
+                Grafik Tasarım Eğitimi
+            </h1>
+            <p class="text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto" data-i18n="hero-desc">
+                Yaratıcılığınızı profesyonel araçlarla birleştirin. Adobe Illustrator'dan logo tasarımına kadar her şeyi kapsayan yoğunlaştırılmış eğitim programı.
+            </p>
+        </section>
+
+        <!-- Info Grid -->
+        <section class="max-w-5xl mx-auto px-6 mb-20 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
+                <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-4">
+                    <i data-lucide="calendar" class="w-7 h-7" style="color: var(--primary-navy);"></i>
+                </div>
+                <h3 class="font-semibold text-lg mb-2" data-i18n="info-date-label">Tarih</h3>
+                <p class="text-gray-500" data-i18n="info-date-value">25 Nisan Cumartesi</p>
+            </div>
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
+                <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-4">
+                    <i data-lucide="map-pin" class="w-7 h-7" style="color: var(--primary-navy);"></i>
+                </div>
+                <h3 class="font-semibold text-lg mb-2" data-i18n="info-location-label">Yer</h3>
+                <p class="text-gray-500" data-i18n="info-location-value">Bâb-ı Âlem (Yüz Yüze)</p>
+            </div>
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
+                <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-4">
+                    <i data-lucide="credit-card" class="w-7 h-7" style="color: var(--primary-navy);"></i>
+                </div>
+                <h3 class="font-semibold text-lg mb-2" data-i18n="info-fee-label">Ücret</h3>
+                <p class="text-xl font-bold" style="color: var(--primary-navy);" data-i18n="info-fee-value">200 TL</p>
+            </div>
+        </section>
+
+        <!-- Form & Details Section -->
+        <section id="form-section" class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Details Panel -->
+            <div class="lg:col-span-5 space-y-8">
+                <div>
+                    <h2 class="text-3xl font-bold mb-8" style="color: var(--primary-navy);" data-i18n="flow-title">Program Akışı</h2>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4 rtl:space-x-reverse">
+                            <div class="mt-1 bg-white p-2 rounded-xl border border-gray-100 shadow-sm">
+                                <i data-lucide="clock" class="w-5 h-5 text-gray-400"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-lg" data-i18n="flow-1-time">15:00 – 16:15</p>
+                                <p class="text-gray-500" data-i18n="flow-1-desc">1. Oturum: Adobe Illustrator & Vektörel Temeller</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4 rtl:space-x-reverse">
+                            <div class="mt-1 bg-white p-2 rounded-xl border border-gray-100 shadow-sm">
+                                <i data-lucide="coffee" class="w-5 h-5 text-gray-400"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-lg" data-i18n="flow-2-time">16:15 – 16:30</p>
+                                <p class="text-gray-500" data-i18n="flow-2-desc">Çay, kahve ve ikram molası</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4 rtl:space-x-reverse">
+                            <div class="mt-1 bg-white p-2 rounded-xl border border-gray-100 shadow-sm">
+                                <i data-lucide="zap" class="w-5 h-5 text-gray-400"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-lg" data-i18n="flow-3-time">16:30 – 18:00</p>
+                                <p class="text-gray-500" data-i18n="flow-3-desc">2. Oturum: Logo Tasarımı & Sosyal Medya</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-8 bg-blue-50 rounded-[2rem] border border-blue-100 shadow-sm">
+                    <h4 class="font-bold flex items-center mb-3 text-lg" style="color: var(--primary-navy);">
+                        <i data-lucide="info" class="w-6 h-6 mr-2 rtl:mr-0 rtl:ml-2"></i> 
+                        <span data-i18n="policy-title">Ödeme Şartı</span>
+                    </h4>
+                    <p class="text-blue-900 leading-relaxed" data-i18n="policy-desc">
+                        Kaydınızın kesinleşmesi için eğitim ücretinin yatırılması ve dekontun bu formdaki ilgili alana işlenmesi gerekmektedir.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Form Wrapper -->
+            <div class="lg:col-span-7">
+                <div class="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-2xl shadow-blue-900/5 border border-gray-100">
+                    <h3 class="text-2xl font-bold mb-8 text-center" style="color: var(--primary-navy);" data-i18n="form-heading">Başvuru Formu</h3>
+                    
+                    <form id="googleForm" class="space-y-6">
+                        <!-- Ad Soyad -->
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 ml-1 rtl:ml-0 rtl:mr-1 text-gray-700" data-i18n="label-name">Ad Soyad *</label>
+                            <input type="text" name="entry.812842741" required
+                                class="w-full bg-gray-50 border border-gray-200 rounded-2xl px-5 py-4 form-input text-lg outline-none"
+                                placeholder="..." data-i18n-placeholder="ph-name">
+                        </div>
+
+                        <!-- Telefon -->
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 ml-1 rtl:ml-0 rtl:mr-1 text-gray-700" data-i18n="label-phone">Telefon Numara *</label>
+                            <input type="tel" name="entry.537514597" required
+                                class="w-full bg-gray-50 border border-gray-200 rounded-2xl px-5 py-4 form-input text-lg outline-none"
+                                placeholder="..." data-i18n-placeholder="ph-phone">
+                        </div>
+
+                        <!-- E-posta -->
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 ml-1 rtl:ml-0 rtl:mr-1 text-gray-700" data-i18n="label-email">E-posta *</label>
+                            <input type="email" name="entry.1643385251" required
+                                class="w-full bg-gray-50 border border-gray-200 rounded-2xl px-5 py-4 form-input text-lg outline-none"
+                                placeholder="..." data-i18n-placeholder="ph-email">
+                        </div>
+
+                        <!-- Bilgisayar Durumu -->
+                        <div>
+                            <label class="block text-sm font-semibold mb-3 ml-1 rtl:ml-0 rtl:mr-1 text-gray-700" data-i18n="label-pc">Bilgisayar durumunuz nedir? *</label>
+                            <div class="grid grid-cols-2 gap-4">
+                                <label class="relative flex items-center p-4 bg-gray-50 border border-gray-200 rounded-2xl cursor-pointer hover:bg-white transition-all group">
+                                    <input type="radio" name="entry.372535311" value="evet" required class="w-4 h-4 accent-navy">
+                                    <span class="ml-3 rtl:ml-0 rtl:mr-3 font-medium text-gray-700" data-i18n="opt-yes">Evet, var</span>
+                                </label>
+                                <label class="relative flex items-center p-4 bg-gray-50 border border-gray-200 rounded-2xl cursor-pointer hover:bg-white transition-all group">
+                                    <input type="radio" name="entry.372535311" value="Hayır" required class="w-4 h-4 accent-navy">
+                                    <span class="ml-3 rtl:ml-0 rtl:mr-3 font-medium text-gray-700" data-i18n="opt-no">Hayır, yok</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Uyruk -->
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 ml-1 rtl:ml-0 rtl:mr-1 text-gray-700" data-i18n="label-nation">Uyruk (Hangi ülke?) *</label>
+                            <input type="text" name="entry.2082479476" required
+                                class="w-full bg-gray-50 border border-gray-200 rounded-2xl px-5 py-4 form-input text-lg outline-none"
+                                placeholder="..." data-i18n-placeholder="ph-nation">
+                        </div>
+
+                        <!-- Ödeme -->
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 ml-1 rtl:ml-0 rtl:mr-1 text-gray-700" data-i18n="label-payment">Ödeme Bilgisi *</label>
+                            <p class="text-xs text-gray-400 mb-3 px-1 leading-relaxed">TR75 0006 7010 0000 0015 3026 32 <br> Mahamat Moustapha Adoum</p>
+                            <input type="text" name="entry.1060229200" required
+                                class="w-full bg-gray-50 border border-gray-200 rounded-2xl px-5 py-4 form-input text-lg outline-none"
+                                placeholder="..." data-i18n-placeholder="ph-payment">
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="pt-4">
+                            <button type="submit" id="submitBtn"
+                                class="w-full py-5 rounded-3xl text-white font-bold text-xl shadow-xl shadow-blue-900/20 hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center space-x-3 rtl:space-x-reverse"
+                                style="background-color: var(--primary-navy);">
+                                <span data-i18n="btn-submit">Kaydı Tamamla</span>
+                                <i data-lucide="arrow-right" class="w-6 h-6 rtl:rotate-180"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-100 py-16">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col items-center">
+            <img src="https://k.top4top.io/p_3755ec3qr1.png" alt="Footer Logo" class="h-12 mb-8 opacity-90">
+            <div class="flex space-x-8 rtl:space-x-reverse mb-8">
+                <a href="#" class="text-gray-400 hover:text-navy transition-colors"><i data-lucide="instagram" class="w-6 h-6"></i></a>
+                <a href="#" class="text-gray-400 hover:text-navy transition-colors"><i data-lucide="twitter" class="w-6 h-6"></i></a>
+                <a href="#" class="text-gray-400 hover:text-navy transition-colors"><i data-lucide="facebook" class="w-6 h-6"></i></a>
+            </div>
+            <p class="text-gray-400 text-sm" data-i18n="footer-copyright">© 2025 Grafik Tasarım Eğitimi. Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+
+    <!-- Modals (Loading/Success) -->
+    <div id="loadingModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-black/40 backdrop-blur-sm">
+        <div class="bg-white p-10 rounded-[2.5rem] flex flex-col items-center shadow-2xl">
+            <div class="loader ease-linear rounded-full border-4 border-t-4 border-gray-100 h-14 w-14 mb-4"></div>
+            <p class="font-bold text-gray-700 text-lg" data-i18n="modal-loading">Gönderiliyor...</p>
+        </div>
+    </div>
+
+    <div id="successModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-black/40 backdrop-blur-sm p-4">
+        <div class="bg-white p-10 rounded-[3rem] flex flex-col items-center shadow-2xl max-w-sm w-full text-center transform transition-all">
+            <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mb-8">
+                <i data-lucide="check" class="text-green-600 w-12 h-12"></i>
+            </div>
+            <h2 class="text-3xl font-bold mb-3 text-gray-900" data-i18n="modal-success-title">Harika!</h2>
+            <p class="text-gray-500 mb-10 text-lg leading-relaxed" data-i18n="modal-success-desc">Başvurunuz başarıyla alındı.</p>
+            <button onclick="closeSuccess()" class="w-full py-5 bg-black text-white rounded-2xl font-bold text-lg hover:bg-opacity-80 transition-all shadow-lg" style="background-color: var(--primary-navy);" data-i18n="modal-success-btn">
+                Kapat
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const translations = {
+            tr: {
+                "nav-brand": "Grafik Tasarım",
+                "nav-cta": "Kaydol",
+                "hero-title": "Grafik Tasarım Eğitimi",
+                "hero-desc": "Yaratıcılığınızı profesyonel araçlarla birleştirin. Adobe Illustrator'dan logo tasarımına kadar her şeyi kapsayan yoğunlaştırılmış eğitim programı.",
+                "info-date-label": "Tarih",
+                "info-date-value": "25 Nisan Cumartesi",
+                "info-location-label": "Yer",
+                "info-location-value": "Bâb-ı Âlem (Yüz Yüze)",
+                "info-fee-label": "Ücret",
+                "info-fee-value": "200 TL",
+                "flow-title": "Program Akışı",
+                "flow-1-time": "15:00 – 16:15",
+                "flow-1-desc": "1. Oturum: Adobe Illustrator & Vektörel Temeller",
+                "flow-2-time": "16:15 – 16:30",
+                "flow-2-desc": "Çay, kahve ve ikram molası",
+                "flow-3-time": "16:30 – 18:00",
+                "flow-3-desc": "2. Oturum: Logo Tasarımı & Sosyal Medya",
+                "policy-title": "Ödeme Şartı",
+                "policy-desc": "Kaydınızın kesinleşmesi için eğitim ücretinin yatırılması ve dekontun bu formdaki ilgili alana işlenmesi gerekmektedir.",
+                "form-heading": "Başvuru Formu",
+                "label-name": "Ad Soyad *",
+                "ph-name": "Adınızı girin",
+                "label-phone": "Telefon Numara *",
+                "ph-phone": "05XX XXX XX XX",
+                "label-email": "E-posta *",
+                "ph-email": "ornek@mail.com",
+                "label-pc": "Bilgisayar durumunuz nedir? *",
+                "opt-yes": "Evet, var",
+                "opt-no": "Hayır, yok",
+                "label-nation": "Uyruk (Hangi ülke?) *",
+                "ph-nation": "Ülkenizi belirtin",
+                "label-payment": "Ödeme Bilgisi *",
+                "ph-payment": "Dekont No veya İşlem Açıklaması",
+                "btn-submit": "Kaydı Tamamla",
+                "footer-copyright": "© 2025 Grafik Tasarım Eğitimi. Tüm Hakları Saklıdır.",
+                "modal-loading": "Gönderiliyor...",
+                "modal-success-title": "Harika!",
+                "modal-success-desc": "Başvurunuz başarıyla alındı. Sizinle iletişime geçeceğiz.",
+                "modal-success-btn": "Kapat"
+            },
+            ar: {
+                "nav-brand": "تصميم الجرافيك",
+                "nav-cta": "سجل الآن",
+                "hero-title": "دورة تصميم الجرافيك",
+                "hero-desc": "اجمع بين إبداعك والأدوات الاحترافية. برنامج تعليمي مكثف يغطي كل شيء من أدوبي إليستريتور إلى تصميم الشعارات.",
+                "info-date-label": "التاريخ",
+                "info-date-value": "25 نيسان، السبت",
+                "info-location-label": "المكان",
+                "info-location-value": "باب العالم (حضوري)",
+                "info-fee-label": "الرسوم",
+                "info-fee-value": "200 ليرة تركي",
+                "flow-title": "جدول البرنامج",
+                "flow-1-time": "15:00 – 16:15",
+                "flow-1-desc": "الجلسة الأولى: أدوبي إليستريتور وأساسيات الفيكتور",
+                "flow-2-time": "16:15 – 16:30",
+                "flow-2-desc": "استراحة شاي وقهوة وضيافة",
+                "flow-3-time": "16:30 – 18:00",
+                "flow-3-desc": "الجلسة الثانية: تصميم الشعارات والتواصل الاجتماعي",
+                "policy-title": "شروط الدفع",
+                "policy-desc": "لتأكيد تسجيلك، يجب دفع رسوم الدورة وإدخال معلومات الإيصال في الحقل المخصص في هذا النموذج.",
+                "form-heading": "نموذج التسجيل",
+                "label-name": "الاسم والكنية *",
+                "ph-name": "أدخل اسمك الكامل",
+                "label-phone": "رقم الهاتف *",
+                "ph-phone": "05XX XXX XX XX",
+                "label-email": "البريد الإلكتروني *",
+                "ph-email": "example@mail.com",
+                "label-pc": "هل تمتلك جهاز كمبيوتر؟ *",
+                "opt-yes": "نعم، أمتلك",
+                "opt-no": "لا، لا أمتلك",
+                "label-nation": "الجنسية (أي بلد؟) *",
+                "ph-nation": "حدد جنسيتك",
+                "label-payment": "معلومات الدفع *",
+                "ph-payment": "رقم الإيصال أو شرح التحويل",
+                "btn-submit": "إكمال التسجيل",
+                "footer-copyright": "© 2025 دورة تصميم الجرافيك. جميع الحقوق محفوظة.",
+                "modal-loading": "جاري الإرسال...",
+                "modal-success-title": "تم بنجاح!",
+                "modal-success-desc": "تم استلام طلبك بنجاح. سنتواصل معك قريباً.",
+                "modal-success-btn": "إغلاق"
+            }
+        };
+
+        function setLanguage(lang) {
+            const isRTL = lang === 'ar';
+            document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
+            document.documentElement.lang = lang;
+
+            // Update Text Elements
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) el.innerText = translations[lang][key];
+            });
+
+            // Update Placeholders
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (translations[lang][key]) el.placeholder = translations[lang][key];
+            });
+
+            // Update Switcher UI
+            document.getElementById('lang-tr').classList.toggle('bg-white', lang === 'tr');
+            document.getElementById('lang-tr').classList.toggle('shadow-sm', lang === 'tr');
+            document.getElementById('lang-tr').classList.toggle('text-navy', lang === 'tr');
+            document.getElementById('lang-tr').classList.toggle('text-gray-500', lang !== 'tr');
+
+            document.getElementById('lang-ar').classList.toggle('bg-white', lang === 'ar');
+            document.getElementById('lang-ar').classList.toggle('shadow-sm', lang === 'ar');
+            document.getElementById('lang-ar').classList.toggle('text-navy', lang === 'ar');
+            document.getElementById('lang-ar').classList.toggle('text-gray-500', lang !== 'ar');
+            
+            lucide.createIcons();
+        }
+
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        const form = document.getElementById('googleForm');
+        const loadingModal = document.getElementById('loadingModal');
+        const successModal = document.getElementById('successModal');
+        const googleFormAction = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSfQySq-VDeeCBLAGN6a3vzMpf_-8Rp4qlgNPlz-2gPSwEw6cw/formResponse";
+
+        function closeSuccess() {
+            successModal.classList.add('hidden');
+            form.reset();
+        }
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            loadingModal.classList.remove('hidden');
+
+            const formData = new FormData(form);
+            
+            try {
+                await fetch(googleFormAction, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: formData
+                });
+                setTimeout(() => {
+                    loadingModal.classList.add('hidden');
+                    successModal.classList.remove('hidden');
+                }, 1000);
+            } catch (error) {
+                loadingModal.classList.add('hidden');
+                console.error('Error:', error);
+            }
+        });
+    </script>
+</body>
+</html>
